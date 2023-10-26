@@ -1,0 +1,54 @@
+---
+import Link from "./Link.astro";
+
+const navData = [
+    {
+        name: "About",
+        path: "/about",
+    },
+    {
+        name: "Blog",
+        path: "/blog",
+    },
+];
+---
+
+<nav aria-label="primary">
+    <div class="nav-bar">
+        <a href="/">Home</a>
+        <ul>
+            {
+                navData.map((item) => (
+                    <Link text={item.name} href={item.path} data-navLink />
+                ))
+            }
+        </ul>
+    </div>
+</nav>
+
+<style>
+    .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1500px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0.6rem 0;
+    }
+
+    [aria-label="primary"] {
+        background-color: var(--navbar-color);
+        width: 100%;
+    }
+</style>
+
+<script>
+    const navLinks = document.querySelectorAll("[data-navLink]");
+    navLinks.forEach((link) => {
+        if (link.getAttribute("href") === window.location.pathname) {
+            link.setAttribute("aria-current", "page");
+        }
+    });
+</script>
