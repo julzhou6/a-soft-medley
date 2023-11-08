@@ -14,5 +14,9 @@ const { text, href, classes, ...rest } = Astro.props as Props;
 <style>
     .link {
         padding-right: 1rem;
+
+        &[aria-current="page"] {
+            font-style: oblique;
+        }
     }
 </style>

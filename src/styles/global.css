@@ -25,3 +25,10 @@ span {
 a {
     text-decoration: none;
 }
+
+.container {
+    width: 100%;
+    max-width: 1500px;
+    margin-inline: auto;
+    padding: 1rem;
+}

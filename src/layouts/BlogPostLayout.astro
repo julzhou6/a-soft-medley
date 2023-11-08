@@ -1,0 +1,36 @@
+---
+import MainLayout from "./MainLayout.astro";
+
+const { frontmatter } = Astro.props;
+const { title, description, date, category, image } = frontmatter;
+---
+
+<MainLayout {title} {description}>
+    <header>
+        <div class="container">
+            <small>
+                <a href={`/category/${category}`} class="badge">{category}</a>
+            </small>
+            <h1>{title}</h1>
+        </div>
+        <img src="" alt="" />
+    </header>
+
+    <div class="post-content">
+        <div class="content">
+            <slot />
+        </div>
+        <div class="sidebar"></div>
+    </div>
+</MainLayout>
+<style>
+    .post-content {
+    }
+
+    .content {
+        display: grid;
+        justify-content: center;
+        width: 100%;
+        max-width: 1500px;
+    }
+</style>
