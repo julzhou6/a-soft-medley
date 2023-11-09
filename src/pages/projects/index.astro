@@ -1,13 +1,25 @@
 ---
 // component imports
 import MainLayout from "../../layouts/MainLayout.astro";
+import { fetchAPI } from "../../lib/api";
+import Preview from "../../layouts/Preview.astro";
+
+const data = await fetchAPI("pages");
 ---
 
 <MainLayout title="My Projects">
-    <p>These are some projects I've worked on/am working on</p>
-    <ul>
-        <li>
-            <a href="./projects/aapride">AAPRIDE Design Campaign</a>
-        </li>
-    </ul>
+    <section>
+        <h1>My Projects</h1>
+        <div>
+            <ul>
+                {
+                    data.map((page) => (
+                        <li>
+                            <Preview post={page} type="projects" />
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </section>
 </MainLayout>

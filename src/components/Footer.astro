@@ -1,7 +1,18 @@
 ---
-
 ---
 
 <footer>
-    <p>This is the footer</p>
+    <p id="footer">
+        Made with ♥ by A Soft Medley <span id="footer-date"></span>
+    </p>
 </footer>
+<script>
+    document.querySelector("#footer-date").textContent = new Date()
+        .getFullYear()
+        .toString();
+</script>
+<style>
+    #footer {
+        font-size: 14px;
+    }
+</style>

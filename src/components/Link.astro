@@ -8,7 +8,7 @@ const { text, href, classes, ...rest } = Astro.props as Props;
 ---
 
 <a href={href} class:list={["link", classes]} {...rest}>
-    <span>{text}</span>
+    <span class:list={classes}>{text}</span>
 </a>
 
 <style>
@@ -18,5 +18,9 @@ const { text, href, classes, ...rest } = Astro.props as Props;
         &[aria-current="page"] {
             font-style: oblique;
         }
+    }
+
+    .nav-link {
+        font-family: "Roboto Mono", monospace !important;
     }
 </style>

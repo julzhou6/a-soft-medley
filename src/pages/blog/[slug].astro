@@ -1,0 +1,22 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getPosts } from "../../lib/api.js";
+
+export async function getStaticPaths() {
+    const data = await getPosts();
+    return data.map((post) => {
+        return {
+            params: { slug: post.slug },
+            props: { post },
+        };
+    });
+}
+const { post } = Astro.props;
+---
+
+<MainLayout>
+    <article>
+        <h1 set:html={post.title.rendered} />
+        <Fragment set:html={post.content.rendered} />
+    </article>
+</MainLayout>

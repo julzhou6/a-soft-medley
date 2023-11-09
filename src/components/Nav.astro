@@ -1,17 +1,18 @@
 ---
 import Link from "./Link.astro";
+import Icon from "astro-icon";
 
 const navData = [
     {
-        name: "About",
+        name: "ABOUT",
         path: "/about",
     },
     {
-        name: "Blog",
+        name: "BLOG",
         path: "/blog",
     },
     {
-        name: "Projects",
+        name: "PROJECTS",
         path: "/projects",
     },
 ];
@@ -19,11 +20,20 @@ const navData = [
 
 <nav aria-label="primary">
     <div class="nav-bar">
-        <a href="/">Home</a>
-        <ul>
+        <a id="home-link" href="/" aria-label="Go home">
+            <Icon class="logo" name="logo" width="60" />
+            <span class="title"><h1>A Soft Medley</h1></span>
+        </a>
+
+        <ul class="nav-list">
             {
                 navData.map((item) => (
-                    <Link text={item.name} href={item.path} data-navLink />
+                    <Link
+                        text={item.name}
+                        href={item.path}
+                        classes="nav-link"
+                        data-navLink
+                    />
                 ))
             }
         </ul>
@@ -40,18 +50,39 @@ const navData = [
         margin-left: auto;
         margin-right: auto;
         padding: 0.6rem 0;
+        border-bottom: solid;
+        border-bottom-width: 0.1rem;
+    }
+
+    .nav-list {
+        align-self: right;
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* will go inside a hamburger menu */
     }
 
     [aria-label="primary"] {
-        background-color: var(--navbar-color);
         width: 100%;
+    }
+
+    .logo {
+        padding-right: 5px;
+    }
+
+    .title {
+        color: var(--nav-light);
+        /* disappear on mobile screens */
+    }
+    
+    #home-link {
+        display: inline-flex;
     }
 </style>
 
 <script>
     const navLinks = document.querySelectorAll("[data-navLink]");
     navLinks.forEach((link) => {
-        if (link.getAttribute("href") === window.location.pathname) {
+        if (window.location.pathname.includes(link.getAttribute("href"))) {
             link.setAttribute("aria-current", "page");
         }
     });

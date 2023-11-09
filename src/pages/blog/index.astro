@@ -1,12 +1,25 @@
 ---
 // component imports
 import MainLayout from "../../layouts/MainLayout.astro";
+import { fetchAPI } from "../../lib/api";
+import Preview from "../../layouts/Preview.astro";
+
+const data = await fetchAPI("posts?per_page=10");
 ---
 
 <MainLayout title="My Blog">
-    <ul>
-        <li>
-            <a href="./blog/post-1/">Post 1</a>
-        </li>
-    </ul>
+    <article>
+        <h1>My Blog</h1>
+        <div>
+            <ul>
+                {
+                    data.map((post) => (
+                        <li>
+                            <Preview post={post} type="blog" />
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </article>
 </MainLayout>

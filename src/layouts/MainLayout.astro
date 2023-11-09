@@ -3,6 +3,9 @@ import MainHead from "./MainHead.astro";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
 import "../styles/global.css";
+import "@wordpress/block-library/build-style/common.css";
+import "@wordpress/block-library/build-style/style.css";
+import "@wordpress/block-library/build-style/theme.css";
 
 const { title } = Astro.props;
 ---
@@ -11,7 +14,7 @@ const { title } = Astro.props;
     <MainHead title={title} />
     <body>
         <Nav />
-        <slot>Loading...</slot>
+        <slot />
         <Footer />
     </body>
 </html>

@@ -1,0 +1,24 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getPages } from "../../lib/api.js";
+
+export async function getStaticPaths() {
+    const data = await getPages();
+    return data.map((page) => {
+        return {
+            params: { slug: page.slug },
+            props: { page },
+        };
+    });
+}
+const { page } = Astro.props;
+---
+
+<MainLayout>
+    <div class="container">
+        <h1 set:html={page.title.rendered} />
+        <Fragment set:html={page.content.rendered} />
+    </div>
+</MainLayout>
+<style>
+</style>
