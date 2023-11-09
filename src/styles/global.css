@@ -43,8 +43,10 @@ a {
 }
 
 .container {
-    width: 100%;
     max-width: 1500px;
     margin-inline: auto;
-    padding: 1rem;
+}
+
+.post {
+    padding: 1rem 2rem;
 }
