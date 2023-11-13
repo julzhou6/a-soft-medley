@@ -2,27 +2,29 @@
 // component imports
 import MainLayout from "../../layouts/MainLayout.astro";
 import PreviewPost from "../../layouts/PreviewPost.astro";
-import { wpquery } from "../../data/wordpress";
+import { fetchAPI } from "../../lib/api";
+// import { wpquery } from "../../data/wordpress";
 
-const query = `{
-      posts {
-        nodes {
-          title
-          date
-          slug
-          excerpt
-          featuredImage {
-            node {
-              altText
-              mediaItemUrl
-              sizes
-            }
-          }
-        }
-      }
-    }
-  `;
-const data = await wpquery(query);
+const data = await fetchAPI("posts");
+// const query = `{
+//       posts {
+//         nodes {
+//           title
+//           date
+//           slug
+//           excerpt
+//           featuredImage {
+//             node {
+//               altText
+//               mediaItemUrl
+//               sizes
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `;
+// const data = await wpquery(query);
 ---
 
 <MainLayout title="My Blog">
@@ -31,7 +33,7 @@ const data = await wpquery(query);
     <div>
       <ul>
         {
-          data.posts.nodes.map((post: any) => {
+          data.map((post: any) => {
             return (
               <li>
                 <PreviewPost post={post} />

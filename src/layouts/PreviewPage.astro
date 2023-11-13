@@ -5,13 +5,17 @@ const { page } = Astro.props;
 <div class="browser-bar"></div>
 <div class="card">
     <div>
-        <img
+        <!-- <img
             class="preview-image"
             src={page.featuredImage.node.mediaItemUrl}
             alt={page.featuredImage.node.altText}
             sizes={page.featuredImage.node.sizes}
+        /> -->
+        <img
+            class="preview-image"
+            src={page._embedded["wp:featuredmedia"][0].source_url}
         />
-        <h2 class="preview-title" set:html={page.title} />
+        <h2 class="preview-title" set:html={page.title.rendered} />
     </div>
     <a class="preview-btn" href={"/projects/" + `${page.slug}`}
         ><span>Check it out</span></a
@@ -74,3 +78,6 @@ const { page } = Astro.props;
     @media screen (max-width: 480px) {
     }
 </style>
+<!-- <script define:vars={{ page }}>
+    console.log(page);
+</script> -->

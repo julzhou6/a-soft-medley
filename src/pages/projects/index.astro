@@ -1,29 +1,29 @@
 ---
 // component imports
 import MainLayout from "../../layouts/MainLayout.astro";
-// import { fetchAPI } from "../../lib/api";
+import { fetchAPI } from "../../lib/api";
 import PreviewPage from "../../layouts/PreviewPage.astro";
-import { wpquery } from "../../data/wordpress";
+// import { wpquery } from "../../data/wordpress";
 
-// const data = await fetchAPI("pages");
-const query = `{
-      pages {
-        nodes {
-          featuredImage {
-            node {
-              altText
-              mediaItemUrl
-              sizes
-            }
-          }
-          title
-          date
-          slug
-        }
-      }
-    }
-  `;
-const data = await wpquery(query);
+const data = await fetchAPI("pages?_embed");
+// const query = `{
+//       pages {
+//         nodes {
+//           featuredImage {
+//             node {
+//               altText
+//               mediaItemUrl
+//               sizes
+//             }
+//           }
+//           title
+//           date
+//           slug
+//         }
+//       }
+//     }
+//   `;
+// const data = await wpquery(query);
 ---
 
 <MainLayout title="My Projects">
@@ -31,7 +31,7 @@ const data = await wpquery(query);
     <h1>My Projects</h1>
     <div class="page-container">
       {
-        data.pages.nodes.map((page) => (
+        data.map((page) => (
           <div class="page-grid">
             <PreviewPage page={page} />
           </div>
@@ -40,9 +40,9 @@ const data = await wpquery(query);
     </div>
   </section>
 </MainLayout>
-<script define:vars={{ data }}>
+<!-- <script define:vars={{ data }}>
   console.log(data);
-</script>
+</script> -->
 <style>
   li {
     list-style-type: none;

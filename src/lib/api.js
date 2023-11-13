@@ -1,8 +1,13 @@
 const API_URL = import.meta.env.PUBLIC_API_URL;
+const username = import.meta.env.username;
+const password = import.meta.env.password;
 
 export async function fetchAPI(query = '') {
-    console.log("api url", API_URL + "/" + query)
-    const res = await fetch(`${API_URL}/${query}`);
+    const res = await fetch(`${API_URL}/${query}`, {
+        headers: {
+            Authorization: "Basic " + btoa(username + ":" + password),
+        }
+    });
 
     if (res.ok) {
         return res.json();

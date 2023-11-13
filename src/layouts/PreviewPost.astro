@@ -4,16 +4,17 @@ const { post } = Astro.props;
 ---
 
 <div class="preview-container">
-  <img
+  <!-- <img
     class="preview-image"
     src={post.featuredImage.node.mediaItemUrl}
     alt={post.featuredImage.node.altText}
     sizes={post.featuredImage.node.sizes}
-  />
+  /> -->
+  <img class="preview-image" src={post.jetpack_featured_media_url} />
   <div class="preview-text">
-    <h2 set:html={post.title} />
+    <h2 set:html={post.title.rendered} />
     <p set:html={formatDate(post.date)} />
-    <Fragment set:html={post.excerpt} />
+    <Fragment set:html={post.excerpt.rendered} />
     <a href={"/blog/" + `${post.slug}`}>Read more</a>
   </div>
 </div>
