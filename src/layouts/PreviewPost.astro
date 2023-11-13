@@ -1,0 +1,34 @@
+---
+import { formatDate } from "../js/utils";
+const { post } = Astro.props;
+---
+
+<div class="preview-container">
+  <img
+    class="preview-image"
+    src={post.featuredImage.node.mediaItemUrl}
+    alt={post.featuredImage.node.altText}
+    sizes={post.featuredImage.node.sizes}
+  />
+  <div class="preview-text">
+    <h2 set:html={post.title} />
+    <p set:html={formatDate(post.date)} />
+    <Fragment set:html={post.excerpt} />
+    <a href={"/blog/" + `${post.slug}`}>Read more</a>
+  </div>
+</div>
+
+<style>
+  .preview-container {
+    display: flex;
+    padding-bottom: 2rem;
+  }
+  .preview-text {
+    padding-left: 0.7rem;
+  }
+  .preview-image {
+    width: 400px;
+    height: 225px;
+    object-fit: cover;
+  }
+</style>

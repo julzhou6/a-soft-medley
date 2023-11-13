@@ -1,22 +1,28 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import { getPosts } from "../../lib/api.js";
+import { getAllPosts } from "../../data/wordpress";
+import { formatDate } from "../../js/utils";
 
 export async function getStaticPaths() {
-    const data = await getPosts();
-    return data.map((post) => {
-        return {
-            params: { slug: post.slug },
-            props: { post },
-        };
-    });
+  const data = await getAllPosts();
+  return data.posts.nodes.map((post) => {
+    return {
+      params: { slug: post.slug },
+      props: { post },
+    };
+  });
 }
 const { post } = Astro.props;
 ---
 
 <MainLayout>
-    <article>
-        <h1 set:html={post.title.rendered} />
-        <Fragment set:html={post.content.rendered} />
-    </article>
+  <article class="post">
+    <h1 set:html={post.title} />
+    <p>Published {formatDate(post.date)}</p>
+    <Fragment set:html={post.content} />
+  </article>
 </MainLayout>
+<script define:vars={{ post }}>
+  console.log(post);
+</script>
+<style></style>

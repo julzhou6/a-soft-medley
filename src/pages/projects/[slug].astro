@@ -1,24 +1,25 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import { getPages } from "../../lib/api.js";
+import { getAllPages } from "../../data/wordpress";
 
 export async function getStaticPaths() {
-    const data = await getPages();
-    return data.map((page) => {
-        return {
-            params: { slug: page.slug },
-            props: { page }
-        };
-    });
+  const data = await getAllPages();
+  return data.pages.nodes.map((page) => {
+    return {
+      params: { slug: page.slug },
+      props: { page },
+    };
+  });
 }
 const { page } = Astro.props;
 ---
 
 <MainLayout>
-    <div>
-        <h1 set:html={page.title.rendered} />
-        <Fragment set:html={page.content.rendered} />
-    </div>
+  <div class="post">
+    <h1 set:html={page.title} />
+    <Fragment set:html={page.content} />
+  </div>
 </MainLayout>
-<style>
-</style>
+<script define:vars={{ page }}>
+  console.log(page);
+</script>

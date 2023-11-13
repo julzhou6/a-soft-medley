@@ -1,25 +1,54 @@
 ---
 // component imports
 import MainLayout from "../../layouts/MainLayout.astro";
-import { fetchAPI } from "../../lib/api";
-import Preview from "../../layouts/Preview.astro";
+// import { fetchAPI } from "../../lib/api";
+import PreviewPage from "../../layouts/PreviewPage.astro";
+import { wpquery } from "../../data/wordpress";
 
-const data = await fetchAPI("pages");
+// const data = await fetchAPI("pages");
+const query = `{
+      pages {
+        nodes {
+          featuredImage {
+            node {
+              altText
+              mediaItemUrl
+              sizes
+            }
+          }
+          title
+          date
+          slug
+        }
+      }
+    }
+  `;
+const data = await wpquery(query);
 ---
 
 <MainLayout title="My Projects">
-    <section class="post">
-        <h1>My Projects</h1>
-        <div>
-            <ul>
-                {
-                    data.map((page) => (
-                        <li>
-                            <Preview post={page} type="projects" />
-                        </li>
-                    ))
-                }
-            </ul>
-        </div>
-    </section>
+  <section class="post">
+    <h1>My Projects</h1>
+    <div class="page-container">
+      {
+        data.pages.nodes.map((page) => (
+          <div class="page-grid">
+            <PreviewPage page={page} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
 </MainLayout>
+<script define:vars={{ data }}>
+  console.log(data);
+</script>
+<style>
+  li {
+    list-style-type: none;
+  }
+  .page-container {
+    display: flex;
+    grid-gap: 1rem;
+  }
+</style>

@@ -30,16 +30,17 @@ body {
     margin: 0;
 }
 
-p {
-    font-family: "Roboto Mono", monospace;
-}
-
-span {
+p,
+span,
+li,
+a,
+cite,
+em {
     font-family: "Roboto Mono", monospace;
 }
 
 a {
-    text-decoration: none;
+    color: var(--nav-light);
 }
 
 .container {
@@ -49,4 +50,5 @@ a {
 
 .post {
     padding: 1rem 2rem;
+    height: 100%;
 }
