@@ -3,32 +3,13 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import { fetchAPI } from "../../lib/api";
 import PreviewPage from "../../layouts/PreviewPage.astro";
-// import { wpquery } from "../../data/wordpress";
 
 const data = await fetchAPI("pages?_embed");
-// const query = `{
-//       pages {
-//         nodes {
-//           featuredImage {
-//             node {
-//               altText
-//               mediaItemUrl
-//               sizes
-//             }
-//           }
-//           title
-//           date
-//           slug
-//         }
-//       }
-//     }
-//   `;
-// const data = await wpquery(query);
 ---
 
 <MainLayout title="My Projects">
   <section class="post">
-    <h1>My Projects</h1>
+    <h1 class="page-title">My Projects</h1>
     <div class="page-container">
       {
         data.map((page) => (
@@ -50,5 +31,14 @@ const data = await fetchAPI("pages?_embed");
   .page-container {
     display: flex;
     grid-gap: 1rem;
+    justify-content: center;
+  }
+  @media screen and (max-width: 640px) {
+    .page-container {
+      flex-wrap: wrap;
+    }
+    .page-grid {
+      padding-bottom: 2rem;
+    }
   }
 </style>
