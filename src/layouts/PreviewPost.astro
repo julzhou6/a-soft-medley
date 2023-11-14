@@ -1,18 +1,21 @@
 ---
 import { formatDate } from "../js/utils";
 const { post } = Astro.props;
+
+// add a var for size of image
+const previewImage = post._embedded["wp:featuredmedia"][0];
 ---
 
 <div class="preview-container">
-  <!-- <img
+  <img
     class="preview-image"
-    src={post.featuredImage.node.mediaItemUrl}
-    alt={post.featuredImage.node.altText}
-    sizes={post.featuredImage.node.sizes}
-  /> -->
-  <img class="preview-image" src={post.jetpack_featured_media_url} />
-  <div class="preview-text">
-    <h2 set:html={post.title.rendered} />
+    src={previewImage.media_details.sizes.medium.source_url}
+    width={previewImage.media_details.sizes.medium.width}
+    alt={previewImage.alt_text}
+    sizes={previewImage.media_details.sizes}
+  />
+  <div class="preview-content">
+    <h2 class="preview-title" set:html={post.title.rendered} />
     <p set:html={formatDate(post.date)} />
     <Fragment set:html={post.excerpt.rendered} />
     <a href={"/blog/" + `${post.slug}`}>Read more</a>
@@ -22,14 +25,20 @@ const { post } = Astro.props;
 <style>
   .preview-container {
     display: flex;
-    padding-bottom: 2rem;
-  }
-  .preview-text {
-    padding-left: 0.7rem;
+    flex-wrap: wrap;
   }
   .preview-image {
-    width: 400px;
-    height: 225px;
     object-fit: cover;
+  }
+  @media screen and (min-width: 640px) {
+    .preview-title {
+      margin-top: 0;
+    }
+    .preview-container {
+      flex-wrap: nowrap;
+    }
+    .preview-content {
+      padding-left: 0.7rem;
+    }
   }
 </style>

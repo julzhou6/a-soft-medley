@@ -3,8 +3,8 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Home">
-    <h1>Welcome to my blog site!</h1>
-    <section class="post">
+    <section class="welcome-text">
+        <h1 class="title">Welcome to my blog site!</h1>
         <p>
             I'm Julie and I run <i>A Soft Medley</i> -- a blog detailing really everything
             -- hence why the name is a soft "medley": from coding projects to my
@@ -12,3 +12,15 @@ import MainLayout from "../layouts/MainLayout.astro";
         </p>
     </section>
 </MainLayout>
+<style>
+    .title {
+        width: 100%;
+    }
+    .welcome-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        flex-wrap: wrap;
+    }
+</style>

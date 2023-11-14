@@ -3,28 +3,8 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import PreviewPost from "../../layouts/PreviewPost.astro";
 import { fetchAPI } from "../../lib/api";
-// import { wpquery } from "../../data/wordpress";
 
-const data = await fetchAPI("posts");
-// const query = `{
-//       posts {
-//         nodes {
-//           title
-//           date
-//           slug
-//           excerpt
-//           featuredImage {
-//             node {
-//               altText
-//               mediaItemUrl
-//               sizes
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `;
-// const data = await wpquery(query);
+const data = await fetchAPI("posts?_embed");
 ---
 
 <MainLayout title="My Blog">
@@ -51,5 +31,10 @@ const data = await fetchAPI("posts");
 <style>
   li {
     list-style-type: none;
+  }
+  @media screen and (max-width: 640px) {
+    ul {
+      padding-left: 0 !important;
+    }
   }
 </style>
