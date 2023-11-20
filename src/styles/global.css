@@ -9,6 +9,7 @@
 
 :root {
     --bg-light: rgb(236, 219, 213);
+    --bg-light-2: rgb(231, 205, 197);
     --bg-dark: rgb(149, 95, 131);
     --nav-light: rgb(185, 109, 64);
 }

@@ -1,7 +1,6 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import { getPosts } from "../../lib/api";
-// import { getAllPosts } from "../../data/wordpress";
 import { formatDate } from "../../js/utils";
 
 export async function getStaticPaths() {
@@ -23,6 +22,6 @@ const { post } = Astro.props;
     <Fragment set:html={post.content.rendered} />
   </article>
 </MainLayout>
-<!-- <script define:vars={{ post }}>
-  console.log(post);
-</script> -->
+<script define:vars={{ post }}>
+  console.log(typeof post.content.rendered);
+</script>

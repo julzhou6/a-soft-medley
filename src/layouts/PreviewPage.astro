@@ -2,7 +2,10 @@
 const { page } = Astro.props;
 ---
 
-<div class="browser-bar"></div>
+<div class="browser-bar">
+    <div class="min-btn"></div>
+    <div class="x-btn"></div>
+</div>
 <div class="card">
     <div>
         <img
@@ -26,8 +29,72 @@ const { page } = Astro.props;
         border-top-left-radius: 10px;
         height: 25px;
         background-color: orange;
+        display: flex;
+        justify-content: end;
+    }
+    .min-btn {
+        width: 12px;
+        height: 12px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        position: relative;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        margin: 10px 5px 10px 5px;
     }
 
+    .min-btn::after {
+        position: absolute;
+        margin-top: 6px;
+        content: "";
+        border-top: 1px solid black;
+        border-width: 1px;
+        width: 6px;
+    }
+
+    .x-btn {
+        width: 12px;
+        height: 12px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        position: relative;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        margin: 10px 10px 10px 5px;
+    }
+
+    .x-btn::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: "\d7";
+        font-size: 20px;
+        color: black;
+        text-align: center;
+        line-height: 12px;
+        /* display: flex;
+        align-self: center;
+        box-sizing: border-box;
+        width: 8px;
+        height: 8px;
+        background: -webkit-linear-gradient(
+                -45deg,
+                transparent 0%,
+                transparent 46%,
+                black 46%,
+                black 56%,
+                transparent 56%,
+                transparent 100%
+            ),
+            -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, black
+                        46%, black 56%, transparent 56%, transparent 100%); */
+    }
     .card {
         border-color: black;
         border-end-end-radius: 10px;

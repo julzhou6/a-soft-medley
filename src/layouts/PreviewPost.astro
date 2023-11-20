@@ -18,7 +18,7 @@ const previewImage = post._embedded["wp:featuredmedia"][0];
     <h2 class="preview-title" set:html={post.title.rendered} />
     <p set:html={formatDate(post.date)} />
     <Fragment set:html={post.excerpt.rendered} />
-    <a href={"/blog/" + `${post.slug}`}>Read more</a>
+    <a class="read-btn" href={"/blog/" + `${post.slug}`}>Read more</a>
   </div>
 </div>
 
@@ -26,9 +26,25 @@ const previewImage = post._embedded["wp:featuredmedia"][0];
   .preview-container {
     display: flex;
     flex-wrap: wrap;
+    background-color: var(--bg-light-2);
+    padding: 1rem;
+    border-radius: 5px;
   }
   .preview-image {
-    object-fit: cover;
+    border-radius: 5px;
+    margin: auto;
+  }
+  .read-btn {
+    --clickable-space-around-btn: -50px;
+    position: relative;
+  }
+  .read-btn:after {
+    content: "";
+    position: absolute;
+    top: var(--clickable-space-around-btn);
+    bottom: var(--clickable-space-around-btn);
+    left: var(--clickable-space-around-btn);
+    right: var(--clickable-space-around-btn);
   }
   @media screen and (min-width: 640px) {
     .preview-title {
@@ -39,6 +55,9 @@ const previewImage = post._embedded["wp:featuredmedia"][0];
     }
     .preview-content {
       padding-left: 0.7rem;
+    }
+    .read-btn {
+      --clickable-space-around-btn: -10px;
     }
   }
 </style>
