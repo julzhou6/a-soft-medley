@@ -22,6 +22,17 @@ const { post } = Astro.props;
     <Fragment set:html={post.content.rendered} />
   </article>
 </MainLayout>
-<script define:vars={{ post }}>
+<!-- <script define:vars={{ post }}>
   console.log(typeof post.content.rendered);
+</script> -->
+
+<script>
+  const alignEl = document.querySelectorAll<HTMLElement>(".aligncenter");
+  alignEl.forEach((el) => {
+    el.style.textAlign = "center";
+  })
+  const embed = document.querySelectorAll<HTMLElement>(".embed-instagram");
+    embed.forEach((el) => {
+      el.style.display = "inline-flex";
+    })
 </script>

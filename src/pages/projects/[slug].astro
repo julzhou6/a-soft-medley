@@ -24,3 +24,14 @@ const { page } = Astro.props;
 <!-- <script define:vars={{ page }}>
   console.log(page);
 </script> -->
+<script>
+  const alignEl = document.querySelectorAll<HTMLElement>(".aligncenter");
+  alignEl.forEach((el) => {
+    el.style.textAlign = "center";
+  })
+  const embed = document.querySelectorAll<HTMLElement>(".embed-instagram");
+    embed.forEach((el) => {
+      console.log(el);
+      el.style.display = "inline-flex";
+    })
+</script>
