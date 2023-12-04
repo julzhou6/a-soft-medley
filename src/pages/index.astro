@@ -1,6 +1,13 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { gsap } from "gsap";
+import catMascot from "../images/catmascot.png";
+import artistCat from "../images/artistcat.png";
+import tennisCat from "../images/tenniscat.png";
+import glassesCat from "../images/glassescat.png";
+import pandaCat from "../images/pandacat.png";
+import sailorMoonCat from "../images/sailormooncat.png";
+import { Image } from 'astro:assets';
+// import { gsap } from "gsap";
 ---
 
 <MainLayout title="Home | Julie Zhou">
@@ -10,12 +17,18 @@ import { gsap } from "gsap";
             <p>I'm Julie and this is my personal blog site!</p>
             <p>This page is still under construction :( But enjoy these cats and other pages on the site in the meantime.</p>
             <div class="cat-box"> 
-                <img class="cat-mascot" src="/images/catmascot.png" width="300"/>
+                <Image src={catMascot} alt="an orange cat" width="300"/>
+                <Image src={artistCat} alt="a cat with paint on its face and wearing a beret" width="350"/>
+                <Image src={tennisCat} alt="a cat with a visor on with letters ASM" width="300"/>
+                <Image src={glassesCat} alt="a cat with blue-tinted glasses" width="300"/>
+                <Image src={pandaCat} alt="a cat with a panda hat" width="300"/>
+                <Image src={sailorMoonCat} alt="a cat with red bows and a forehead piece, much similar to Sailor Moon" width="400"/>
+                <!-- <img class="cat-mascot" src="/images/catmascot.png" width="300"/>
                 <img class="artist-cat" src="/images/artistcat.png" width="350"/>
                 <img class="tennis-cat" src="images/tenniscat.png" width="300"/>
                 <img class="glasses-cat" src="/images/glassescat.png" width="300"/>
                 <img class="panda-cat" src="/images/pandacat.png" width="300"/>
-                <img class="sailormoon-cat" src="/images/sailormooncat.png" width="400"/>
+                <img class="sailormoon-cat" src="/images/sailormooncat.png" width="400"/> -->
             </div>
         </div>
     </section>
@@ -48,7 +61,3 @@ import { gsap } from "gsap";
         flex-wrap: wrap;
     }
 </style>
-<script>
-var tl = gsap.timeline();
-
-</script>
