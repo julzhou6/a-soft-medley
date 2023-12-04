@@ -21,8 +21,8 @@ const navData = [
 <nav aria-label="primary">
     <div class="nav-bar">
         <a id="home-link" href="/" aria-label="Go home">
-            <Icon class="logo" name="logo" width="60" />
-            <span class="title"><h1>A Soft Medley</h1></span>
+            <Icon class="cat-icon" name="cat-icon" width="50" />
+            <span class="title"><h1>Julie Zhou</h1></span>
         </a>
 
         <ul class="nav-list">
@@ -67,8 +67,9 @@ const navData = [
         width: 100%;
     }
 
-    .logo {
-        padding-right: 5px;
+    .cat-icon {
+        padding-right: 1rem;
+        padding-left: 0.5rem;
     }
 
     .title {
@@ -78,6 +79,10 @@ const navData = [
 
     #home-link {
         display: inline-flex;
+    }
+
+    .nav-list {
+        padding-right: 0.5rem;
     }
 </style>
 

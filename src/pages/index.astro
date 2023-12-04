@@ -1,16 +1,30 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { gsap } from "gsap";
 ---
 
-<MainLayout title="Home">
+<MainLayout title="Home | Julie Zhou">
     <section class="container welcome-text">
-        <h1 class="title">Welcome to my blog site!</h1>
-        <p>
-            I'm Julie and I run <i>A Soft Medley</i> -- a blog detailing really everything
-            -- hence why the name is a soft "medley": from coding projects to my
-            favorite manga, I'll be writing about all the things that interest me!
-        </p>
+        <div>
+            <h1 class="title">Welcome!</h1>
+            <p>I'm Julie and this is my personal blog site!</p>
+            <p>This page is still under construction :( But enjoy these cats and other pages on the site in the meantime.</p>
+            <div class="cat-box"> 
+                <img class="cat-mascot" src="src/images/catmascot.png" width="300"/>
+                <img class="artist-cat" src="src/images/artistcat.png" width="350"/>
+                <img class="tennis-cat" src="src/images/tenniscat.png" width="300"/>
+                <img class="glasses-cat" src="src/images/glassescat.png" width="300"/>
+                <img class="panda-cat" src="src/images/pandacat.png" width="300"/>
+                <img class="sailormoon-cat" src="src/images/sailormooncat.png" width="400"/>
+            </div>
+        </div>
     </section>
+    <!-- <section class="container about-site">
+        <p>Hi, I'm Julie!</p>
+    </section>
+    <section class="container latest">
+        <p>Check out my latest projects and posts!</p>
+    </section> -->
 </MainLayout>
 <style>
     .title {
@@ -19,8 +33,22 @@ import MainLayout from "../layouts/MainLayout.astro";
     .welcome-text {
         display: flex;
         justify-content: center;
-        align-items: center;
         padding: 2rem;
+    }
+    /* section {
+        min-height: 100vw;
+    } */
+    img {
+        aspect-ratio: auto;
+    }
+    .cat-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         flex-wrap: wrap;
     }
 </style>
+<script>
+var tl = gsap.timeline();
+
+</script>
