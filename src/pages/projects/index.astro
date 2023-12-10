@@ -25,6 +25,9 @@ const data = await fetchAPI("pages?_embed");
   console.log(data);
 </script> -->
 <style>
+  .page-title {
+    text-align: center;
+  }
   li {
     list-style-type: none;
   }
@@ -32,6 +35,9 @@ const data = await fetchAPI("pages?_embed");
     display: flex;
     grid-gap: 1rem;
     justify-content: center;
+  }
+  .page-grid {
+    visibility: hidden;
   }
   @media screen and (max-width: 640px) {
     .page-container {
@@ -42,3 +48,8 @@ const data = await fetchAPI("pages?_embed");
     }
   }
 </style>
+<script>
+  import { gsap } from "gsap";
+  var t1 = gsap.timeline();
+  t1.from(".page-grid", {opacity: 0, duration: 1, autoAlpha: 0})
+</script>

@@ -15,7 +15,7 @@ const data = await fetchAPI("posts?_embed");
         {
           data.map((post: any) => {
             return (
-              <li>
+              <li id="post">
                 <PreviewPost post={post} />
               </li>
             );
@@ -25,14 +25,25 @@ const data = await fetchAPI("posts?_embed");
     </div>
   </article>
 </MainLayout>
-<script define:vars={{ data }}>
+<!-- <script define:vars={{ data }}>
   console.log(data);
-</script>
+</script> -->
 <style>
+  h1 {
+    text-align: center;
+  }
   li {
     list-style-type: none;
   }
   ul {
     padding-left: 0 !important;
   }
+  #post {
+    visibility: hidden;
+  }
 </style>
+<script>
+   import { gsap } from "gsap";
+    var t1 = gsap.timeline();
+    t1.from("#post", {opacity: 0, y: -50, stagger: 1, autoAlpha: 0})
+</script>

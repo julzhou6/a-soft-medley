@@ -7,41 +7,52 @@ import glassesCat from "../images/glassescat.png";
 import pandaCat from "../images/pandacat.png";
 import sailorMoonCat from "../images/sailormooncat.png";
 import { Image } from 'astro:assets';
-// import { gsap } from "gsap";
+import Icon from "astro-icon";
 ---
 
 <MainLayout title="Home | Julie Zhou">
     <section class="container welcome-text">
         <div>
-            <h1 class="title">Welcome!</h1>
-            <p>I'm Julie and this is my personal blog site!</p>
-            <p>This page is still under construction :( But enjoy these cats and other pages on the site in the meantime.</p>
-            <div class="cat-box"> 
-                <Image src={catMascot} alt="an orange cat" width="300"/>
-                <Image src={artistCat} alt="a cat with paint on its face and wearing a beret" width="350"/>
+            <div id="cat-box" class="cat-box">
+                <Image id="glasses-cat" class="cat-mascot" src={glassesCat} alt="a glasses-wearing cat" width="200"/>
+                <Image id="tennis-cat" class="cat-mascot" src={tennisCat} alt="a tennis cat" width="200"/>
+                <Image id="cat-mascot" class="cat-mascot" src={catMascot} alt="an orange cat" width="300"/>
+                <Image id="artist-cat" class="cat-mascot" src={artistCat} alt="an artist cat" width="240"/>
+                <Image id="panda-cat" class="cat-mascot" src={pandaCat} alt="a panda cat" width="200"/>
+            </div>
+            <div class="bio-box"> 
+                <div id="bio" class="bio">
+                    <h1 class="title">Hi I'm Julie!</h1>
+                    <p>Welcome welcome! I'm a front-end developer and artist based in Washington D.C. My main interests lie in the
+                        intersection between art and technology. Storytelling is also a
+                        big passion of mine, which is why I love making comics/zines and
+                        consuming/talking about media that tell stories really well. (And if you can't tell I really like cats and tangerines too.)</p>
+                        <p>
+                            <b>Currently, I am open to new front-end/web development-related
+                                opportunities!</b>
+                        </p> 
+                    <div class="socials">
+                        <a href="mailto:julielinzhou@gmail.com" class="social-icon"><Icon name="mail" width="50"/></a>
+                        <a href="https://linkedin.com/in/julielinzhou" class="social-icon" target="_blank"> <Icon name="linkedin" width="50"/></a>
+                        <a href="https://instagram.com/julieqiuli" class="social-icon" target="_blank"> <Icon name="insta" width="50"/></a>
+                        <a href="https://github.com/julzhou6" class="social-icon" target="_blank"><Icon name="github" width="50"/></a>
+                       
+                        
+                    </div>   
+                </div>
+                <!-- <Image src={artistCat} alt="a cat with paint on its face and wearing a beret" width="350"/>
                 <Image src={tennisCat} alt="a cat with a visor on with letters ASM" width="300"/>
                 <Image src={glassesCat} alt="a cat with blue-tinted glasses" width="300"/>
                 <Image src={pandaCat} alt="a cat with a panda hat" width="300"/>
-                <Image src={sailorMoonCat} alt="a cat with red bows and a forehead piece, much similar to Sailor Moon" width="400"/>
-                <!-- <img class="cat-mascot" src="/images/catmascot.png" width="300"/>
-                <img class="artist-cat" src="/images/artistcat.png" width="350"/>
-                <img class="tennis-cat" src="images/tenniscat.png" width="300"/>
-                <img class="glasses-cat" src="/images/glassescat.png" width="300"/>
-                <img class="panda-cat" src="/images/pandacat.png" width="300"/>
-                <img class="sailormoon-cat" src="/images/sailormooncat.png" width="400"/> -->
+                <Image src={sailorMoonCat} alt="a cat with red bows and a forehead piece, much similar to Sailor Moon" width="400"/> -->
             </div>
+           
         </div>
     </section>
-    <!-- <section class="container about-site">
-        <p>Hi, I'm Julie!</p>
-    </section>
-    <section class="container latest">
-        <p>Check out my latest projects and posts!</p>
-    </section> -->
 </MainLayout>
 <style>
     .title {
-        width: 100%;
+        text-align: center;
     }
     .welcome-text {
         display: flex;
@@ -54,10 +65,38 @@ import { Image } from 'astro:assets';
     img {
         aspect-ratio: auto;
     }
-    .cat-box {
+    .bio-box {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    .cat-box {
+        display: flex; 
+        align-items: center;
+        justify-content: center;
         flex-wrap: wrap;
+        padding-bottom: 1rem;
+    }
+    .bio {
+        background-color: rgb(255,250,250, 0.8);
+        border-width: 2px;
+        border-style: solid;
+        padding: 2rem;
+        max-width: 50%;
+    }
+    .social-icon {
+        padding-right: 1rem;
+    }
+    .cat-mascot {
+        visibility: hidden;
+    }
+    .bio {
+        visibility: hidden; 
     }
 </style>
+<script>
+    import { gsap } from "gsap";
+    var t1 = gsap.timeline();
+    t1.from(".cat-mascot", {scale:0, opacity: 0, stagger: {each: 0.1,  from: "center"}, autoAlpha: 0})
+    .from("#bio", {y: -80, opacity: 0, autoAlpha: 0}, "-=0.4")
+</script>
