@@ -34,6 +34,12 @@ const data = await fetchAPI("posts?_embed");
   }
   li {
     list-style-type: none;
+    padding-bottom: 1rem;
+  }
+  @media screen and (max-width: 640px) {
+    li {
+      padding-bottom: 2rem;
+    }
   }
   ul {
     padding-left: 0 !important;
@@ -45,5 +51,5 @@ const data = await fetchAPI("posts?_embed");
 <script>
    import { gsap } from "gsap";
     var t1 = gsap.timeline();
-    t1.from("#post", {opacity: 0, y: -50, stagger: 1, autoAlpha: 0})
+    t1.from("#post", {opacity: 0, y: -50, stagger: 0.4, autoAlpha: 0})
 </script>
