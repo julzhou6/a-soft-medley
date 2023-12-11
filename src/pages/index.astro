@@ -82,7 +82,11 @@ import Icon from "astro-icon";
         border-width: 2px;
         border-style: solid;
         padding: 2rem;
-        max-width: 50%;
+    }
+    @media screen and (min-width: 640px) {
+        .bio {
+            max-width: 50%; 
+        }
     }
     .social-icon {
         padding-right: 1rem;
