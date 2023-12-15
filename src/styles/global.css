@@ -8,8 +8,8 @@
 }
 
 :root {
-    --bg-light: rgb(236, 219, 213);
-    --bg-light-2: rgb(231, 205, 197);
+    --bg-light: rgb(231, 208, 197); 
+    --bg-light-2: rgb(225, 196, 183);
     --bg-dark: rgb(149, 95, 131);
     --nav-light: rgb(185, 109, 64);
 }
@@ -47,6 +47,8 @@ a {
 .container {
     max-width: 1500px;
     margin-inline: auto;
+    padding: 1rem 2rem;
+    height: 100%;
 }
 
 .post {

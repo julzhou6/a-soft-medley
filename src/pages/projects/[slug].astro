@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { page } = Astro.props;
 ---
 
-<MainLayout>
+<MainLayout title={page.title.rendered}>
   <div class="post">
     <h1 set:html={page.title.rendered} />
     <Fragment set:html={page.content.rendered} />
