@@ -7,12 +7,16 @@
     </p>
 </footer>
 <script>
-    document.querySelector("#footer-date").textContent = new Date()
+    const footer = document.getElementById("footer")
+    let footerDate = document.getElementById("footer-date")
+    footerDate.textContent = new Date()
         .getFullYear()
         .toString();
+    footer.style.visibility = "visible";
 </script>
 <style>
     #footer {
         font-size: 14px;
+        visibility: hidden;
     }
 </style>
