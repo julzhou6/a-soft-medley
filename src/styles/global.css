@@ -72,3 +72,8 @@ a {
     display: flex;
     justify-content: center;
 }
+.wp-block-image img {
+    height: auto;
+    max-width: 100%; 
+    vertical-align: bottom;
+}
