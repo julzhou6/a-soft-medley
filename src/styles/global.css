@@ -5,6 +5,7 @@
     src: url("./fonts/04B_30__.TTF") format("truetype"),
         url("./fonts/04B_30__.WOFF") format("woff"),
         url("./fonts/04B_30__.WOFF2") format("woff2");
+    font-display: fallback;
 }
 
 :root {
@@ -16,6 +17,7 @@
 
 h1 {
     font-family: "Retro Cute", monospace;
+    text-rendering: optimizeSpeed;
 }
 
 h2 {
