@@ -1,36 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap");
 
 @font-face {
-    font-family: "Retro Cute";
-    src: url("./fonts/04B_30__.TTF") format("truetype"),
-        url("./fonts/04B_30__.WOFF") format("woff"),
-        url("./fonts/04B_30__.WOFF2") format("woff2");
-    font-display: fallback;
+  font-family: "Retro Cute";
+  src: url("./fonts/04B_30__.TTF") format("truetype"),
+    url("./fonts/04B_30__.WOFF") format("woff"),
+    url("./fonts/04B_30__.WOFF2") format("woff2");
+  font-display: fallback;
 }
 
 :root {
-    --bg-light: rgb(231, 208, 197); 
-    --bg-light-2: rgb(225, 196, 183);
-    --bg-dark: rgb(149, 95, 131);
-    --nav-light: rgb(185, 109, 64);
+  --bg-light: rgb(231, 208, 197);
+  --bg-light-2: rgb(225, 196, 183);
+  --bg-dark: rgb(149, 95, 131);
+  --nav-light: rgb(185, 109, 64);
 }
 
 h1 {
-    font-family: "Retro Cute", monospace;
-    text-rendering: optimizeSpeed;
+  font-family: "Retro Cute", monospace;
+  text-rendering: optimizeSpeed;
 }
 
 h2 {
-    font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 body {
-    background-color: var(--bg-light);
-    display: grid;
-    place-items: center;
-    grid-template-rows: auto 1fr auto;
-    margin: 0;
-    height: 100%;
+  background-color: var(--bg-light);
+  display: grid;
+  place-items: center;
+  grid-template-rows: auto 1fr auto;
+  margin: 0;
+  height: 100%;
 }
 
 p,
@@ -39,42 +39,91 @@ li,
 a,
 cite,
 em {
-    font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono", monospace;
+}
+
+.wp-element-caption {
+  font-family: "Roboto Mono", monospace;
+  font-style: italic;
 }
 
 a {
-    color: var(--nav-light);
+  color: var(--nav-light);
 }
 
 .container {
-    max-width: 1500px;
-    margin-inline: auto;
-    padding: 1rem 2rem;
-    height: 100%;
+  max-width: 1500px;
+  margin-inline: auto;
+  padding: 1rem 2rem;
+  height: 100%;
 }
 
 .post {
-    padding: 1rem 2rem;
-    height: 100%;
+  padding: 1rem 2rem;
+  height: 100%;
 }
 
 .aligncenter {
-    text-align: center !important;
+  text-align: center !important;
+}
+
+.alignleft {
+  float: left;
+  margin-inline: 0;
+  margin-inline-end: 2em;
+}
+
+.alignright {
+  float: right;
+  margin-inline: 2em;
+  margin-inline-end: 0;
 }
 
 .wp-block-embed.aligncenter {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .wp-block-image img {
-    height: auto;
-    max-width: 100%; 
-    vertical-align: bottom;
+  height: auto;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+.wp-block-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wp-block-gallery-1, .wp-block-gallery-2, .wp-block-gallery-3, .wp-block-gallery-4  {
+  grid-template-columns: 1fr 1fr;
+}
+
+.wp-block-gallery-5, .wp-block-gallery-6  {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.wp-block-gallery > .wp-block-image {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+  margin: 0 0 0.5em;
 }
 
 @media screen and (min-width: 640px) {
-    .post {
-        width: 60%;
-    }
+  .post {
+    width: 60%;
+  }
+
+  .wp-block-gallery {
+    display: grid;
+    grid-gap: 20px;
+    align-items: start;
+  }
+
+  .alignright, .alignleft {
+    text-align: center;
+    margin: revert;
+  }
 }
