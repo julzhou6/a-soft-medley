@@ -30,9 +30,12 @@ const previewImage = post._embedded["wp:featuredmedia"][0];
     padding: 1rem;
     border-radius: 5px;
   }
+  img {
+    height: 200px;
+  }
   .preview-image {
     border-radius: 5px;
-    margin: auto;
+    object-fit: cover;
   }
   .read-btn {
     --clickable-space-around-btn: -50px;
