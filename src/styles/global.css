@@ -67,16 +67,9 @@ a {
   text-align: center !important;
 }
 
-.alignleft {
-  float: left;
-  margin-inline: 0;
-  margin-inline-end: 2em;
-}
-
-.alignright {
-  float: right;
-  margin-inline: 2em;
-  margin-inline-end: 0;
+.alignright, .alignleft {
+  text-align: center;
+  margin: revert;
 }
 
 .wp-block-embed.aligncenter {
@@ -108,7 +101,7 @@ a {
   text-align: center;
   vertical-align: top;
   width: 100%;
-  margin: 0 0 0.5em;
+  margin: revert;
 }
 
 @media screen and (min-width: 640px) {
@@ -122,8 +115,19 @@ a {
     align-items: start;
   }
 
-  .alignright, .alignleft {
-    text-align: center;
-    margin: revert;
+  .alignleft {
+    float: left;
+    margin-inline: 0;
+    margin-inline-end: 2em;
+  }
+  
+  .alignright {
+    float: right;
+    margin-inline: 2em;
+    margin-inline-end: 0;
+  }
+
+  .wp-block-gallery > .wp-block-image {
+    margin: 0 0 0.5em;
   }
 }
