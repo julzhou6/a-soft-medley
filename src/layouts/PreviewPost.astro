@@ -27,6 +27,8 @@ const previewImage = post._embedded["wp:featuredmedia"][0];
     display: flex;
     flex-wrap: wrap;
     background-color: var(--bg-light-2);
+    border-style: solid;
+    border-color: var(--nav-light);
     padding: 1rem;
     border-radius: 5px;
   }
@@ -36,6 +38,7 @@ const previewImage = post._embedded["wp:featuredmedia"][0];
   .preview-image {
     border-radius: 5px;
     object-fit: cover;
+    margin: auto;
   }
   .read-btn {
     --clickable-space-around-btn: -50px;

@@ -23,6 +23,7 @@ const { page } = Astro.props;
 <style>
     .browser-bar {
         border-style: solid;
+        border-color: var(--nav-light);
         border-bottom: none;
         border-width: 2px;
         border-top-right-radius: 10px;
@@ -36,7 +37,7 @@ const { page } = Astro.props;
         width: 12px;
         height: 12px;
         border-style: solid;
-        border-color: black;
+        border-color: var(--nav-light);
         border-width: 1px;
         position: relative;
         display: flex;
@@ -58,7 +59,7 @@ const { page } = Astro.props;
         width: 12px;
         height: 12px;
         border-style: solid;
-        border-color: black;
+        border-color: var(--nav-light);
         border-width: 1px;
         position: relative;
         display: flex;
@@ -76,12 +77,12 @@ const { page } = Astro.props;
         content: "\d7";
         font-size: 19px;
         font-weight: normal;
-        color: black;
+        color: var(--nav-light);
         text-align: center;
         line-height: 11px;
     }
     .card {
-        border-color: black;
+        border-color: var(--nav-light);
         border-end-end-radius: 10px;
         border-end-start-radius: 10px;
         border-style: solid;
@@ -106,6 +107,7 @@ const { page } = Astro.props;
         padding: 0.5rem;
         border-style: solid;
         border-width: 1.5px;
+        border-color: var(--nav-light);
         text-decoration: none;
         color: black;
         outline: 0;

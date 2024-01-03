@@ -36,15 +36,8 @@ import Icon from "astro-icon";
                         <a href="https://linkedin.com/in/julielinzhou" class="social-icon" target="_blank"> <Icon name="linkedin" width="50"/></a>
                         <a href="https://instagram.com/julieqiuli" class="social-icon" target="_blank"> <Icon name="insta" width="50"/></a>
                         <a href="https://github.com/julzhou6" class="social-icon" target="_blank"><Icon name="github" width="50"/></a>
-                       
-                        
                     </div>   
                 </div>
-                <!-- <Image src={artistCat} alt="a cat with paint on its face and wearing a beret" width="350"/>
-                <Image src={tennisCat} alt="a cat with a visor on with letters ASM" width="300"/>
-                <Image src={glassesCat} alt="a cat with blue-tinted glasses" width="300"/>
-                <Image src={pandaCat} alt="a cat with a panda hat" width="300"/>
-                <Image src={sailorMoonCat} alt="a cat with red bows and a forehead piece, much similar to Sailor Moon" width="400"/> -->
             </div>
            
         </div>
@@ -78,9 +71,10 @@ import Icon from "astro-icon";
         padding-bottom: 1rem;
     }
     .bio {
-        background-color: rgb(255,250,250, 0.8);
+        background-color: rgb(255,250,250, 0.4);
         border-width: 2px;
         border-style: solid;
+        border-color: var(--nav-light);
         padding: 2rem;
     }
     @media screen and (min-width: 640px) {
@@ -102,5 +96,5 @@ import Icon from "astro-icon";
     import { gsap } from "gsap";
     var t1 = gsap.timeline();
     t1.from(".cat-mascot", {scale:0, opacity: 0, stagger: {each: 0.1,  from: "center"}, autoAlpha: 0})
-    .from("#bio", {y: -80, opacity: 0, autoAlpha: 0}, "-=0.4")
+    .from("#bio", {y: -100, opacity: 0, autoAlpha: 0}, "-=0.4")
 </script>
