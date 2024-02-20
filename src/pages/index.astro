@@ -6,6 +6,7 @@ import tennisCat from "../images/tenniscat.png";
 import glassesCat from "../images/glassescat.png";
 import pandaCat from "../images/pandacat.png";
 import sailorMoonCat from "../images/sailormooncat.png";
+import meDrawing from "../images/medrawing.PNG";
 import { Image } from 'astro:assets';
 import Icon from "astro-icon";
 ---
@@ -13,50 +14,56 @@ import Icon from "astro-icon";
 <MainLayout title="Home | Julie Zhou">
     <section class="container welcome-text">
         <div>
-            <div title="me as cats...that wear different hats. eeeeyyyy good one right" id="cat-box" class="cat-box">
+            <!-- <div title="me as cats...that wear different hats. eeeeyyyy good one right" id="cat-box" class="cat-box">
                 <Image id="glasses-cat" class="cat-mascot" src={glassesCat} alt="a glasses-wearing cat" width="200"/>
                 <Image id="tennis-cat" class="cat-mascot" src={tennisCat} alt="a tennis cat" width="200"/>
                 <Image id="cat-mascot" class="cat-mascot" src={catMascot} alt="an orange cat" width="300"/>
                 <Image id="artist-cat" class="cat-mascot" src={artistCat} alt="an artist cat" width="240"/>
                 <Image id="panda-cat" class="cat-mascot" src={pandaCat} alt="a panda cat" width="200"/>
-            </div>
+            </div> -->
             <div class="bio-box"> 
                 <div id="bio" class="bio">
-                    <h1 class="title">Hi I'm Julie!</h1>
-                    <p>Welcome welcome! I'm a front-end developer and artist based in Washington D.C. My main interests lie in the
-                        intersection between art and technology. Storytelling is also a
-                        big passion of mine, which is why I love making comics/zines and
-                        consuming/talking about media that tell stories really well. (And if you can't tell I really like cats and tangerines too.)</p>
-                        <p>
-                            <b>Currently, I am open to new front-end/web development-related
-                                opportunities!</b>
-                        </p> 
-                    <div class="socials">
-                        <a href="mailto:julielinzhou@gmail.com" class="social-icon"><Icon name="mail" width="50"/></a>
-                        <a href="https://linkedin.com/in/julielinzhou" class="social-icon" target="_blank"> <Icon name="linkedin" width="50"/></a>
-                        <a href="https://instagram.com/julieqiuli" class="social-icon" target="_blank"> <Icon name="insta" width="50"/></a>
-                        <a href="https://github.com/julzhou6" class="social-icon" target="_blank"><Icon name="github" width="50"/></a>
-                    </div>   
+                    <Image id="me-drawing" class="me-drawing" src={meDrawing} alt="a drawing of me wearing a cat ear tangerine hat" width="200"/>
+                    <div id="bio-text">
+                        <h1 class="title">Hi I'm Julie!</h1>
+                        <p>Welcome welcome! I'm a front-end developer and artist based in Washington D.C. My main interests lie in the
+                            intersection between art and technology. Storytelling is also a
+                            big passion of mine, which is why I love making comics/zines and
+                            consuming/talking about media that tell stories really well.</p>
+                            <p>
+                                <b>Currently, I am open to new front-end/web development-related
+                                    opportunities!</b>
+                            </p> 
+                        <div class="socials">
+                            <a href="mailto:julielinzhou@gmail.com" class="social-icon"><Icon name="mail" width="50"/></a>
+                            <a href="https://linkedin.com/in/julielinzhou" class="social-icon" target="_blank"> <Icon name="linkedin" width="50"/></a>
+                            <a href="https://instagram.com/julieqiuli" class="social-icon" target="_blank"> <Icon name="insta" width="50"/></a>
+                            <a href="https://github.com/julzhou6" class="social-icon" target="_blank"><Icon name="github" width="50"/></a>
+                        </div>   
+                    </div>
                 </div>
             </div>
-           
         </div>
     </section>
 </MainLayout>
 <style>
-    .title {
-        text-align: center;
-    }
+    /* .title {
+        text-align: left;
+    } */
     .welcome-text {
         display: flex;
         justify-content: center;
         padding: 2rem;
+        text-align: center;
     }
     /* section {
         min-height: 100vw;
     } */
     img {
         aspect-ratio: auto;
+    }
+    .me-drawing {
+        border-radius: 50%;
     }
     .bio-box {
         display: flex;
@@ -70,13 +77,6 @@ import Icon from "astro-icon";
         flex-wrap: wrap;
         padding-bottom: 1rem;
     }
-    .bio {
-        background-color: rgb(255,250,250, 0.4);
-        border-width: 2px;
-        border-style: solid;
-        border-color: var(--nav-light);
-        padding: 2rem;
-    }
     @media screen and (min-width: 640px) {
         .bio {
             max-width: 50%; 
@@ -88,13 +88,9 @@ import Icon from "astro-icon";
     .cat-mascot {
         visibility: hidden;
     }
-    .bio {
-        visibility: hidden; 
-    }
 </style>
 <script>
     import { gsap } from "gsap";
     var t1 = gsap.timeline();
-    t1.from(".cat-mascot", {scale:0, opacity: 0, stagger: {each: 0.1,  from: "center"}, autoAlpha: 0})
-    .from("#bio", {y: -100, opacity: 0, autoAlpha: 0}, "-=0.4")
+    t1.from("#bio", {opacity: 0, autoAlpha: 0})
 </script>

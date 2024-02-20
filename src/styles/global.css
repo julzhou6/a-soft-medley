@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-@font-face {
+/* @font-face {
   font-family: "Retro Cute";
   src: url("./fonts/04B_30__.TTF") format("truetype"),
     url("./fonts/04B_30__.WOFF") format("woff"),
     url("./fonts/04B_30__.WOFF2") format("woff2");
   font-display: fallback;
-}
+} */
 
 :root {
   --bg-light: rgb(231, 208, 197);
@@ -16,8 +17,7 @@
 }
 
 h1 {
-  font-family: "Retro Cute", monospace;
-  text-rendering: optimizeSpeed;
+  font-family: "Roboto Mono", monospace;
 }
 
 h2 {
@@ -39,11 +39,11 @@ li,
 a,
 cite,
 em {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Montserrat", monospace;
 }
 
 .wp-element-caption {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Montserrat", monospace;
   font-style: italic;
 }
 
