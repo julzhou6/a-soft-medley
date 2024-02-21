@@ -88,9 +88,14 @@ import Icon from "astro-icon";
     .cat-mascot {
         visibility: hidden;
     }
+    .bio {
+        visibility: hidden;
+    }
 </style>
 <script>
     import { gsap } from "gsap";
     var t1 = gsap.timeline();
     t1.from("#bio", {opacity: 0, autoAlpha: 0})
+    // t1.from(".cat-mascot", {scale:0, opacity: 0, stagger: {each: 0.1,  from: "center"}, autoAlpha: 0})
+    // .from("#bio", {y: -100, opacity: 0, autoAlpha: 0}, "-=0.4")
 </script>
