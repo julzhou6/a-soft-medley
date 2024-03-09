@@ -1,12 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import catMascot from "../images/catmascot.png";
-import artistCat from "../images/artistcat.png";
-import tennisCat from "../images/tenniscat.png";
-import glassesCat from "../images/glassescat.png";
-import pandaCat from "../images/pandacat.png";
-import sailorMoonCat from "../images/sailormooncat.png";
-import meDrawing from "../images/medrawing.PNG";
+import meDrawing from "../images/medrawing.png";
 import { Image } from 'astro:assets';
 import Icon from "astro-icon";
 ---
@@ -14,13 +8,6 @@ import Icon from "astro-icon";
 <MainLayout title="Home | Julie Zhou">
     <section class="container welcome-text">
         <div>
-            <!-- <div title="me as cats...that wear different hats. eeeeyyyy good one right" id="cat-box" class="cat-box">
-                <Image id="glasses-cat" class="cat-mascot" src={glassesCat} alt="a glasses-wearing cat" width="200"/>
-                <Image id="tennis-cat" class="cat-mascot" src={tennisCat} alt="a tennis cat" width="200"/>
-                <Image id="cat-mascot" class="cat-mascot" src={catMascot} alt="an orange cat" width="300"/>
-                <Image id="artist-cat" class="cat-mascot" src={artistCat} alt="an artist cat" width="240"/>
-                <Image id="panda-cat" class="cat-mascot" src={pandaCat} alt="a panda cat" width="200"/>
-            </div> -->
             <div class="bio-box"> 
                 <div id="bio" class="bio">
                     <Image id="me-drawing" class="me-drawing" src={meDrawing} alt="a drawing of me wearing a cat ear tangerine hat" width="200"/>
@@ -47,9 +34,6 @@ import Icon from "astro-icon";
     </section>
 </MainLayout>
 <style>
-    /* .title {
-        text-align: left;
-    } */
     .welcome-text {
         display: flex;
         justify-content: center;
