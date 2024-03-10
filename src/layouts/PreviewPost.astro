@@ -7,19 +7,21 @@ const previewImage = post._embedded["wp:featuredmedia"][0];
 ---
 
 <div class="preview-container">
-  <img
-    class="preview-image"
-    src={previewImage.media_details.sizes.medium.source_url}
-    width={previewImage.media_details.sizes.medium.width}
-    alt={previewImage.alt_text}
-    sizes={previewImage.media_details.sizes}
-  />
-  <div class="preview-content">
-    <h2 class="preview-title" set:html={post.title.rendered} />
-    <p set:html={formatDate(post.date)} />
-    <Fragment set:html={post.excerpt.rendered} />
-    <a class="read-btn" href={"/blog/" + `${post.slug}`}>Read more</a>
-  </div>
+  <a class="read-btn" href={"/blog/" + `${post.slug}`}>
+    <img
+      class="preview-image"
+      src={previewImage.media_details.sizes.medium.source_url}
+      width={previewImage.media_details.sizes.medium.width}
+      alt={previewImage.alt_text}
+      sizes={previewImage.media_details.sizes}
+    />
+
+    <div class="preview-content">
+      <h2 class="preview-title" set:html={post.title.rendered} />
+      <p class="publish-date" set:html={formatDate(post.date)} />
+      <Fragment set:html={post.excerpt.rendered} />
+    </div>
+  </a>
 </div>
 
 <style>
@@ -32,37 +34,62 @@ const previewImage = post._embedded["wp:featuredmedia"][0];
     border-radius: 5px;
   }
   img {
-    height: 200px;
+    /* margin: auto;
+    width: auto; */
+    width: 0;
+    height: 0;
+    visibility: hidden;
   }
+
   .preview-image {
     border-radius: 5px;
     object-fit: cover;
-    margin: auto;
   }
   .read-btn {
-    --clickable-space-around-btn: -50px;
-    position: relative;
+    text-decoration: none;
+    display: inline-flex;
+    flex-wrap: wrap;
+    color: black;
+    justify-content: center;
+    text-align: center;
   }
-  .read-btn:after {
-    content: "";
-    position: absolute;
-    top: var(--clickable-space-around-btn);
-    bottom: var(--clickable-space-around-btn);
-    left: var(--clickable-space-around-btn);
-    right: var(--clickable-space-around-btn);
+  .preview-container:hover {
+    background-color: var(--nav-light);
+    transition: 300ms;
   }
+  .preview-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .publish-date {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
   @media screen and (min-width: 640px) {
     .preview-title {
       margin-top: 0;
     }
     .preview-container {
       flex-wrap: nowrap;
+      border-style: none;
+    }
+    .publish-date {
+      margin-left: 1rem;
     }
     .preview-content {
-      padding-left: 0.7rem;
+      padding-left: 1rem;
     }
     .read-btn {
-      --clickable-space-around-btn: -10px;
+      flex-wrap: nowrap;
+    }
+    img {
+      margin: inherit;
+      height: auto;
+      width: 100px;
+      visibility: visible;
     }
   }
 </style>
