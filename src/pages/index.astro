@@ -1,6 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import meDrawing from "../images/medrawing.png";
+import meDrawing from "../icons/medrawing.PNG";
 import { Image } from 'astro:assets';
 import Icon from "astro-icon";
 ---
@@ -10,7 +10,7 @@ import Icon from "astro-icon";
         <div>
             <div class="bio-box"> 
                 <div id="bio" class="bio">
-                    <Image id="me-drawing" class="me-drawing" src={meDrawing} alt="a drawing of me wearing a cat ear tangerine hat" width="200"/>
+                    <Image id="me-drawing" class="me-drawing" src={meDrawing} alt="a drawing of me wearing a cat ear tangerine hat" width={200}/>
                     <div id="bio-text">
                         <h1 class="title">Hi I'm Julie!</h1>
                         <p>Welcome welcome! I'm a front-end developer and artist based in Washington D.C. My main interests lie in the
