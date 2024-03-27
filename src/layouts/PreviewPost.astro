@@ -8,13 +8,13 @@ const previewImage = post._embedded["wp:featuredmedia"][0];
 
 <div class="preview-container">
   <a class="read-btn" href={"/blog/" + `${post.slug}`}>
-    <img
+    <!-- <img
       class="preview-image"
       src={previewImage.media_details.sizes.medium.source_url}
       width={previewImage.media_details.sizes.medium.width}
       alt={previewImage.alt_text}
       sizes={previewImage.media_details.sizes}
-    />
+    /> -->
 
     <div class="preview-content">
       <h2 class="preview-title" set:html={post.title.rendered} />
@@ -32,6 +32,7 @@ const previewImage = post._embedded["wp:featuredmedia"][0];
     border-color: var(--nav-light);
     padding: 1rem;
     border-radius: 5px;
+    background-color: var(--bg-light);
   }
   img {
     /* margin: auto;
