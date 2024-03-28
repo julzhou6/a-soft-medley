@@ -1,21 +1,10 @@
 ---
 import { formatDate } from "../js/utils";
 const { post } = Astro.props;
-
-// add a var for size of image
-const previewImage = post._embedded["wp:featuredmedia"][0];
 ---
 
 <div class="preview-container">
   <a class="read-btn" href={"/blog/" + `${post.slug}`}>
-    <!-- <img
-      class="preview-image"
-      src={previewImage.media_details.sizes.medium.source_url}
-      width={previewImage.media_details.sizes.medium.width}
-      alt={previewImage.alt_text}
-      sizes={previewImage.media_details.sizes}
-    /> -->
-
     <div class="preview-content">
       <h2 class="preview-title" set:html={post.title.rendered} />
       <p class="publish-date" set:html={formatDate(post.date)} />
@@ -32,7 +21,6 @@ const previewImage = post._embedded["wp:featuredmedia"][0];
     border-color: var(--nav-light);
     padding: 1rem;
     border-radius: 5px;
-    background-color: var(--bg-light);
   }
   img {
     /* margin: auto;
