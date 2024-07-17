@@ -9,7 +9,7 @@ const data = await fetchAPI("posts?_embed");
 
 <MainLayout title="Blog">
   <article class="container">
-    <h1>BLOG</h1>
+    <h1 class="heading">BLOG</h1>
     <div>
       <ul>
         {
@@ -39,6 +39,9 @@ const data = await fetchAPI("posts?_embed");
   @media screen and (max-width: 640px) {
     li {
       padding-bottom: 2rem;
+    }
+    .heading {
+      font-size: 40px;
     }
   }
   ul {

@@ -3,13 +3,16 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import { fetchAPI } from "../../lib/api";
 import PreviewPage from "../../layouts/PreviewPage.astro";
+import bbCover from "../../images/Cover-Art-V3-logo.png";
+import { Image } from 'astro:assets';
 
 const data = await fetchAPI("pages?_embed");
 ---
 
 <MainLayout title="Works">
   <section class="post">
-    <h1 class="page-title">WORKS</h1>
+    <h1 class="page-title heading">WORKS</h1>
+    <h2>PROJECTS</h2>
     <div class="page-container">
       {
         data.map((page) => (
@@ -18,6 +21,10 @@ const data = await fetchAPI("pages?_embed");
           </div>
         ))
       }
+    </div>
+    <h2>COMICS</h2>
+    <div class="page-container">
+      <a href="https://burnbrightlycomic.com" target="_blank"><Image id="bb-cover" class="bb-cover" src={bbCover} alt="a drawing of a girl looking over her shoulder while walking" width={250}/></a>
     </div>
   </section>
   <!-- <section>
@@ -29,6 +36,15 @@ const data = await fetchAPI("pages?_embed");
   console.log(data);
 </script> -->
 <style>
+  .bb-cover {
+    border: 1px solid;
+    border-color: orange;
+    border-radius: 10px;
+  }
+  .bb-cover:hover {
+    opacity: 70%;
+    transition: 0.2s ease-in-out;
+  }
   .page-title {
     text-align: center;
   }
@@ -40,6 +56,7 @@ const data = await fetchAPI("pages?_embed");
     grid-gap: 1rem;
     justify-content: center;
     padding-bottom: 2rem;
+    flex-wrap: wrap;
   }
   .page-grid {
     visibility: hidden;
@@ -51,10 +68,13 @@ const data = await fetchAPI("pages?_embed");
     .page-grid {
       padding-bottom: 2rem;
     }
+    .heading {
+      font-size: 40px;
+    }
   }
 </style>
 <script>
   import { gsap } from "gsap";
   var t1 = gsap.timeline();
-  t1.from(".page-grid", {opacity: 0, duration: 1, autoAlpha: 0})
+  t1.from(".page-grid", { opacity: 0, duration: 1, autoAlpha: 0 });
 </script>
