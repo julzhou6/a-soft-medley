@@ -47,9 +47,21 @@ button {
   font-family: "Montserrat", monospace;
 }
 
+.post > p {
+  line-height: 1.55rem;
+}
+
 .wp-element-caption {
   font-family: "Montserrat", monospace;
   font-style: italic;
+}
+
+.wp-block-quote {
+  background-color: var(--bg-light);
+  border-radius: 20px;
+  font-style: italic;
+  line-height: 1.3rem;
+  padding: 1.5rem;
 }
 
 a {
