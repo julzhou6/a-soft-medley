@@ -38,6 +38,18 @@ const stats = readingTime(post.content.rendered);
   </article>
 </MainLayout>
 <script async src="https://cusdis.com/js/cusdis.es.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    let iframe = document.querySelector("#cusdis_thread iframe");
+    if (iframe) {
+        let observer = new MutationObserver(() => {
+            let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            iframe.style.height = scrollHeight + "px";
+        });
+        observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });
+    }
+});
+</script>
 <style>
   .comments {
     padding-top: 2rem;
