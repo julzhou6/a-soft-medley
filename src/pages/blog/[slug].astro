@@ -40,10 +40,14 @@ const stats = readingTime(post.content.rendered);
 <script async src="https://cusdis.com/js/cusdis.es.js"></script>
 <script>
   window.addEventListener('load', function () {
+    console.log('loaded')
     let iframe = document.querySelector("#cusdis_thread iframe");
+    console.log('iframe', iframe)
     if (iframe) {
+      console.log('iframe exists')
         let observer = new MutationObserver(() => {
             let scrollHeight = iframe.contentWindow.document.body.scrollHeight;
+            console.log(scrollHeight)
             iframe.style.height = scrollHeight + "px";
         });
         observer.observe(iframe.contentWindow.document.body, { childList: true, subtree: true });

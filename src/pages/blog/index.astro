@@ -10,7 +10,7 @@ const data = await fetchAPI("posts?_embed");
 <MainLayout title="Blog">
   <article class="container">
     <h1 class="heading">BLOG</h1>
-    <div>
+    <div class="post-list">
       <ul>
         {
           data.map((post: any) => {
@@ -47,9 +47,10 @@ const data = await fetchAPI("posts?_embed");
   ul {
     padding-left: 0 !important;
   }
-  /* #post {
-    visibility: hidden;
-  } */
+  .post-list {
+    max-width: 80%;
+    margin: auto;
+  }
 </style>
 <!-- <script>
    import { gsap } from "gsap";
